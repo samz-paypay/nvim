@@ -58,10 +58,10 @@ tnoremap <Esc> <C-\><C-n>
 
 set clipboard+=unnamedplus
 
-set nobackup
-set nowritebackup
-set noundofile
-set noswapfile
+" set nobackup
+" set nowritebackup
+" set noundofile
+" set noswapfile
 
 " use treesitter
 syntax off
@@ -99,6 +99,12 @@ call plug#begin('~/.vim/plugged')
 
   "" Syntax highlight
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+  " neovim
+  Plug 'nvim-lua/plenary.nvim'
+
+  " Scala
+  Plug 'scalameta/nvim-metals'
 call plug#end()
 
 set background=dark
@@ -120,7 +126,9 @@ nnoremap <Leader>rr yiw:Rg! <C-R>" <C-R>%
 vnoremap <Leader>rr y:<c-u>Rg! '<C-R>"' <C-R>%
 
 " Prettier
-" let g:prettier#config#single_quote = 'false'
+let g:prettier#config#semi = 'false'
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#trailing_comma = 'es5'
 " let g:prettier#config#bracket_spacing = 'true'
 " nnoremap gp :silent %!prettier --no-config --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
 
@@ -151,7 +159,7 @@ nmap <silent> dp <Plug>(coc-diagnostic-prev)
 nmap <silent> dn <Plug>(coc-diagnostic-next)
 nmap <leader>rn <Plug>(coc-rename)
 command! -nargs=0 Format :call CocAction('format')
-nmap <leader>f :Format<CR>
+command! -nargs=0 CocStop :call coc#rpc#stop()
 
 " Emmet  
 let g:user_emmet_leader_key = '<C-K>'
