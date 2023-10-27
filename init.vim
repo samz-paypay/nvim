@@ -102,6 +102,8 @@ call plug#begin('~/.vim/plugged')
 
   " neovim
   Plug 'nvim-lua/plenary.nvim'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-nvim-lsp'
 
   " Scala
   Plug 'scalameta/nvim-metals'

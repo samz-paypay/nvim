@@ -1,5 +1,14 @@
 local api = vim.api
 
+local cmp = require("cmp")
+cmp.setup.filetype("scala", {
+  sources = {
+    { name = "nvim_lsp" },
+  },
+  mapping = cmp.mapping.preset.insert({
+  }),
+})
+
 local metals_config = require("metals").bare_config()
 
 -- Example of settings
