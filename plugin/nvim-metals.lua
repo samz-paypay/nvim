@@ -4,6 +4,7 @@ local metals_config = require("metals").bare_config()
 
 -- Example of settings
 metals_config.settings = {
+  enableSemanticHighlighting = false,
 }
 
 -- Autocmd that will actually be in charging of starting the whole thing
