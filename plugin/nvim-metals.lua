@@ -4,6 +4,7 @@ local cmp = require("cmp")
 cmp.setup.filetype("scala", {
   sources = {
     { name = "nvim_lsp" },
+    { name = "buffer" },
   },
   mapping = cmp.mapping.preset.insert({
   }),
@@ -15,6 +16,7 @@ local metals_config = require("metals").bare_config()
 metals_config.settings = {
   enableSemanticHighlighting = false,
 }
+metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Autocmd that will actually be in charging of starting the whole thing
 local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
