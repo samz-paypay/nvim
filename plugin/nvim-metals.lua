@@ -4,7 +4,13 @@ local cmp = require("cmp")
 cmp.setup.filetype("scala", {
   sources = {
     { name = "nvim_lsp" },
+    { name = "vsnip" },
     { name = "buffer" },
+  },
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
   },
   mapping = cmp.mapping.preset.insert({
   }),
